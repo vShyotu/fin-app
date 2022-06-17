@@ -1,11 +1,10 @@
-import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import { Layout } from "./Layout";
-import { Login } from "./Login";
-import { AccountOverview } from "./AccountOverview";
-import { NotFound } from "./NotFound";
+import { Layout } from "../../components/Layout";
+import { Login } from "../../pages/Login";
+import { AccountOverview } from "../../pages/AccountOverview";
+import { NotFound } from "../../pages/NotFound";
 
-const App = () => {
+export const AuthenticatedApp = () => {
   return (
     <Routes>
       <Route element={<Layout />}>
@@ -16,5 +15,3 @@ const App = () => {
     </Routes>
   );
 };
-
-export default App;

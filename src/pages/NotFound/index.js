@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { HoldingPageLayout } from "../HoldingPage";
+import { HoldingPageLayout } from "../../components/HoldingPage";
 
 export const NotFound = () => {
   const navigate = useNavigate();

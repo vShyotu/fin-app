@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../../contexts/useAuth";
 
 const LogoLink = () => (
   <div>
@@ -7,6 +8,8 @@ const LogoLink = () => (
 );
 
 export const Navbar = () => {
+  const { logout } = useAuth();
+
   return (
     <nav>
       <LogoLink />
@@ -24,7 +27,7 @@ export const Navbar = () => {
           <Link to="/profile">Profile</Link>
         </li>
         <li>
-          <Link to="/login">Log out</Link>
+          <button onClick={() => logout()}>Log out</button>
         </li>
       </ul>
     </nav>
