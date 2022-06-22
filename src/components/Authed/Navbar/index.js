@@ -1,13 +1,8 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../../contexts/useAuth";
+import { useAuth } from "../../../hooks/useAuth";
+import { LogoLink } from "../../LogoLink";
 
-const LogoLink = () => (
-  <div>
-    <Link to="/">Logo</Link>
-  </div>
-);
-
-export const Navbar = () => {
+export const AuthedNavbar = () => {
   const { logout } = useAuth();
 
   return (

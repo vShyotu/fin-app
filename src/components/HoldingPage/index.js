@@ -7,7 +7,7 @@ const AdditionalSection = ({ title, content }) => {
   );
 };
 
-export const HoldingPageLayout = ({
+export const HoldingPage = ({
   icon,
   title,
   content,

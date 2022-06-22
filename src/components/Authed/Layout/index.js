@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import { Navbar } from "../Navbar";
+import { AuthedNavbar } from "../Navbar";
 
-export const Layout = () => (
+export const AuthedLayout = () => (
   <>
     <header>
-      <Navbar />
+      <AuthedNavbar />
     </header>
     <main>
       <Outlet />

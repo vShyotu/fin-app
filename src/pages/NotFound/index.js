@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { HoldingPageLayout } from "../../components/HoldingPage";
+import { HoldingPage } from "../../components/HoldingPage";
 
 export const NotFound = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ export const NotFound = () => {
   const button = <button onClick={buttonOnClick}>{buttonLabel}</button>;
 
   return (
-    <HoldingPageLayout
+    <HoldingPage
       icon={<div>Icon</div>}
       title={"404 Not Found"}
       content={"This page could not be found"}

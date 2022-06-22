@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Layout } from "../../components/Layout";
+import { AuthedLayout } from "../../components/Authed/Layout";
 import { Login } from "../../pages/Login";
 import { AccountOverview } from "../../pages/AccountOverview";
 import { NotFound } from "../../pages/NotFound";
@@ -7,7 +7,7 @@ import { NotFound } from "../../pages/NotFound";
 export const AuthenticatedApp = () => {
   return (
     <Routes>
-      <Route element={<Layout />}>
+      <Route element={<AuthedLayout />}>
         <Route index element={<AccountOverview />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<NotFound />} />
