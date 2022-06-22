@@ -1,27 +1,25 @@
 import { useNavigate } from "react-router-dom";
 import { HoldingPage } from "../../components/HoldingPage";
+import { useAuth } from "../../hooks/useAuth";
 
 export const NotFound = () => {
   const navigate = useNavigate();
-  const isLoggedIn = false;
-  const hasHistory = window.history.state && window.history.state.idx > 0;
+  const { user } = useAuth();
 
-  const buttonOnClick = () =>
-    hasHistory ? navigate(-1) : navigate("/", { replace: true });
-  const buttonLabel = hasHistory ? "Go back" : "Go home";
-  const button = <button onClick={buttonOnClick}>{buttonLabel}</button>;
+  const buttonOnClick = () => navigate("/");
+  const button = <button onClick={buttonOnClick}>Back to your account</button>;
 
   return (
     <HoldingPage
       icon={<div>Icon</div>}
       title={"404 Not Found"}
       content={"This page could not be found"}
-      button={button}
-      showAdditionalSection={isLoggedIn}
+      button={user && button}
+      showAdditionalSection={!user}
       additionalSectionTitle={"Need help?"}
       additionalSectionContent={
         <>
-          Contact us on <a href="tel:+44800-123-1234">0800 123 1234</a>
+          Contact us on <a href="tel:+44800-123-1234">0123 123 1234</a>
         </>
       }
     />

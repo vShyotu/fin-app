@@ -6,7 +6,7 @@ export const UnauthenticatedApp = () => {
   return (
     <Routes>
       <Route element={<UnauthedLayout />}>
-        <Route index path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Route>
     </Routes>

@@ -1,11 +1,11 @@
 const user = async (accessToken) =>
   new Promise((resolve) =>
-    setInterval(() => resolve({ data: { name: "Grant" } }), 500)
+    setTimeout(() => resolve({ data: { name: "Grant" } }), 500)
   );
 
 const login = async (email, password) =>
   new Promise((resolve) =>
-    setInterval(
+    setTimeout(
       () => resolve({ data: { accessToken: "12345", refreshToken: "ABCDE" } }),
       500
     )
