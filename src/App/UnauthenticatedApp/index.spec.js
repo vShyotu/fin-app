@@ -33,8 +33,18 @@ describe("Authenticated App", () => {
     ).toBeInTheDocument();
   });
 
-  it("should redirect to the login page at any undefined route", () => {
+  it("should redirect to the not found page at any undefined route", () => {
     const wrapper = withMemoryRouter(Providers, ["/test"]);
+
+    render(<UnauthenticatedApp />, { wrapper });
+
+    expect(
+      screen.getByRole("heading", { name: /404 not found/i })
+    ).toBeInTheDocument();
+  });
+
+  it("should redirect to the login page for '/' route", () => {
+    const wrapper = withMemoryRouter(Providers, ["/"]);
 
     render(<UnauthenticatedApp />, { wrapper });
 

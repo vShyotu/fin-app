@@ -26,7 +26,7 @@ describe("AuthedNavbar", () => {
     fireEvent.click(screen.getByRole("link", { name: /secure/i }));
 
     expect(
-      screen.getByRole("heading", { name: /log in/i })
+      screen.getByRole("heading", { name: /404 not found/i })
     ).toBeInTheDocument();
   });
 });
