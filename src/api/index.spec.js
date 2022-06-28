@@ -2,18 +2,19 @@ import api from ".";
 
 describe("user", () => {
   it("should fetch user data", async () => {
-    const userData = await api.user("12345");
+    sessionStorage.setItem("access_token", "12345");
+    const userResponse = await api.user();
+    const userData = await userResponse.json();
 
-    expect(userData).toEqual({ data: { name: "Grant" } });
+    expect(userData).toEqual({ name: "Grant" });
   });
 });
 
 describe("login", () => {
   it("should attempt to log the user in", async () => {
-    const loginTokens = await api.login("User", "Test123");
+    const loginResponse = await api.login("test", "test123");
+    const tokens = await loginResponse.json();
 
-    expect(loginTokens).toEqual({
-      data: { accessToken: "12345", refreshToken: "ABCDE" },
-    });
+    expect(tokens).toEqual({ accessToken: "12345", refreshToken: "ABCDE" });
   });
 });

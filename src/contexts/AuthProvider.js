@@ -17,7 +17,9 @@ export const AuthProvider = ({ children }) => {
 
       setLoading(true);
       const userResponse = await api.user(accessToken);
-      setUser(userResponse.data);
+      const user = await userResponse.json();
+
+      setUser(user);
       setLoading(false);
     };
 
@@ -36,14 +38,16 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
 
     const loginResponse = await api.login(email, password);
-    const { accessToken, refreshToken } = loginResponse.data;
+    const tokens = await loginResponse.json();
+    const { accessToken, refreshToken } = tokens;
 
     sessionStorage.setItem("access_token", accessToken);
     sessionStorage.setItem("refresh_token", refreshToken);
 
     const userResponse = await api.user(accessToken);
-    setUser(userResponse.data);
+    const user = await userResponse.json();
 
+    setUser(user);
     setLoading(false);
   };
 
