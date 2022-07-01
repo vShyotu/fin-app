@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Policy } from ".";
 import { Routes, Route } from "react-router-dom";
@@ -31,6 +31,29 @@ describe("Policy Page", () => {
   });
 
   describe("when there is a policy number in location state", () => {
+    it("should display a back to my account link that goes back to account overview", () => {
+      const wrapper = withMemoryRouter(Providers, [
+        { pathname: "/policy", state: { policyNumber: "T123456" } },
+      ]);
+
+      const MockRoutes = () => (
+        <Routes>
+          <Route path="/policy" element={<Policy />} />
+          <Route path="/" element={<h1>Account Overview</h1>} />
+        </Routes>
+      );
+
+      render(<MockRoutes />, { wrapper });
+
+      fireEvent.click(
+        screen.getByRole("link", { name: /< back to my account/i })
+      );
+
+      expect(
+        screen.getByRole("heading", { name: /account overview/i })
+      ).toBeInTheDocument();
+    });
+
     it('should display a "Policy Overview" heading', () => {
       const wrapper = withMemoryRouter(Providers, [
         { pathname: "/policy", state: { policyNumber: "T123456" } },
