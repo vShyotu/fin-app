@@ -90,5 +90,30 @@ describe("Policy Page", () => {
         screen.getByRole("heading", { name: mockPolicyNumber })
       ).toBeInTheDocument();
     });
+
+    it("should display a table of invested funds for the policy", () => {
+      const mockPolicyNumber = "T123456";
+      const wrapper = withMemoryRouter(Providers, [
+        { pathname: "/policy", state: { policyNumber: mockPolicyNumber } },
+      ]);
+
+      const MockRoutes = () => (
+        <Routes>
+          <Route path="/policy" element={<Policy />} />
+        </Routes>
+      );
+
+      render(<MockRoutes />, { wrapper });
+
+      expect(
+        screen.getByRole("columnheader", { name: /fund/i })
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("columnheader", { name: /percentage invested/i })
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("columnheader", { name: /value/i })
+      ).toBeInTheDocument();
+    });
   });
 });
