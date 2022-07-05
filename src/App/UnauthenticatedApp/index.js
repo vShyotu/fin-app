@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { UnauthedLayout } from "../../components/Unauthed/Layout";
+import { UnauthedLayout } from "../../components/UnauthedLayout";
 import { Login } from "../../pages/Login";
 import { NotFound } from "../../pages/NotFound";
 

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { LogoLink } from "../../LogoLink";
+import { LogoLink } from "../LogoLink";
 
 export const UnauthedNavbar = () => {
   return (

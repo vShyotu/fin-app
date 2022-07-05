@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { AuthedNavbar } from "../Navbar";
+import { AuthedNavbar } from "../AuthedNavbar";
 
 export const AuthedLayout = () => (
   <>

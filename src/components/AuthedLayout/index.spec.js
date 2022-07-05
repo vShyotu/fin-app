@@ -1,7 +1,7 @@
 import { AuthedLayout } from ".";
 import { render, screen } from "@testing-library/react";
-import { AuthContext } from "../../../contexts/AuthContext";
-import { withMemoryRouter } from "../../../test/helpers";
+import { AuthContext } from "../../contexts/AuthContext";
+import { withMemoryRouter } from "../../test/helpers";
 import { Routes, Route } from "react-router-dom";
 
 const Providers = ({ children }) => (

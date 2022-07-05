@@ -1,7 +1,7 @@
-import { AuthenticatedApp } from "../../../App/AuthenticatedApp";
+import { AuthenticatedApp } from "../../App/AuthenticatedApp";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { AuthContext } from "../../../contexts/AuthContext";
-import { withMemoryRouter } from "../../../test/helpers";
+import { AuthContext } from "../../contexts/AuthContext";
+import { withMemoryRouter } from "../../test/helpers";
 
 const mockLogout = jest.fn();
 const Providers = ({ children }) => (

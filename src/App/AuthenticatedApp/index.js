@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { AuthedLayout } from "../../components/Authed/Layout";
+import { AuthedLayout } from "../../components/AuthedLayout";
 import { AccountOverview } from "../../pages/AccountOverview";
 import { NotFound } from "../../pages/NotFound";
 import { Policy } from "../../pages/Policy";

@@ -1,7 +1,7 @@
-import { UnauthenticatedApp } from "../../../App/UnauthenticatedApp";
+import { UnauthenticatedApp } from "../../App/UnauthenticatedApp";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { AuthContext } from "../../../contexts/AuthContext";
-import { withMemoryRouter } from "../../../test/helpers";
+import { AuthContext } from "../../contexts/AuthContext";
+import { withMemoryRouter } from "../../test/helpers";
 
 const Providers = ({ children }) => (
   <AuthContext.Provider value={{ login: jest.fn(), logout: jest.fn() }}>
