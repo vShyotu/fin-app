@@ -42,7 +42,26 @@ describe("Account Overview Page", () => {
   it("should render a personalised greeting", () => {
     render(<AccountOverview />, { wrapper });
 
-    expect(screen.getByText("Hi Grant")).toBeInTheDocument();
+    expect(screen.getByText(/hi, grant/i)).toBeInTheDocument();
+  });
+
+  it("should render an estimate my pension button that navigates to /plan", () => {
+    const wrapper = withMemoryRouter(Providers);
+
+    const MockRoutes = () => (
+      <Routes>
+        <Route index element={<AccountOverview />} />
+        <Route path="/plan" element={<h1>Plan</h1>} />
+      </Routes>
+    );
+
+    render(<MockRoutes />, { wrapper });
+
+    fireEvent.click(
+      screen.getByRole("button", { name: /estimate my pension/i })
+    );
+
+    expect(screen.getByRole("heading", { name: /plan/i })).toBeInTheDocument();
   });
 
   describe("Policies", () => {

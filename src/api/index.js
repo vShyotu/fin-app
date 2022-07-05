@@ -16,7 +16,6 @@ const user = async () => {
 const login = async (email, password) => {
   const base64UserPass = `${utf8_to_b64(email)}:${utf8_to_b64(password)}`;
   const authorizationHeader = `Basic ${base64UserPass}`;
-  console.log("Auth header (login):", authorizationHeader);
 
   const headers = new Headers();
   headers.append("Authorization", authorizationHeader);

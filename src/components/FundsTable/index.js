@@ -17,7 +17,7 @@ export const FundsTable = ({ funds }) => {
   const fundRows = useMemo(
     () =>
       funds.map(({ name, sedol, percentage, value, factsheet }) => (
-        <tr>
+        <tr key={`row-${sedol}`}>
           <td>
             <Link to={factsheet}>{name}</Link> <span>SEDOL:</span> {sedol}
           </td>

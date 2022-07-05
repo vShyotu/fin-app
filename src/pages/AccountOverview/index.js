@@ -51,7 +51,6 @@ export const AccountOverview = () => {
           }}
         />
       ))}
-      <p>Hi {user.name}</p>
     </>
   );
 };

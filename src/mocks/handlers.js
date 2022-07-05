@@ -4,17 +4,14 @@ import { b64_to_utf8 } from "../utils/base64";
 export const handlers = [
   rest.post("/login", (req, res, ctx) => {
     const authorizationHeader = req.headers.get("Authorization");
-    console.log("AuthHeader", authorizationHeader);
 
     if (!authorizationHeader) {
       return res(ctx.status(401));
     }
 
     const authorizationHeaderArgs = authorizationHeader.split(" ");
-    console.log(authorizationHeaderArgs);
 
     if (authorizationHeaderArgs[0] !== "Basic") {
-      console.log("failed basic check");
       return res(ctx.status(401));
     }
 

@@ -8,6 +8,14 @@ describe("user", () => {
 
     expect(userData).toEqual({ name: "Grant" });
   });
+
+  it("should not return anything if the api is called without an access token", async () => {
+    sessionStorage.clear();
+
+    const userResponse = await api.user();
+
+    expect(userResponse).toBeUndefined();
+  });
 });
 
 describe("login", () => {
