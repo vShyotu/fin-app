@@ -15,7 +15,6 @@ export const Policy = () => {
       value: 1234.56,
       percentage: 50,
       currency: "GBP",
-      type: "GPP",
       factsheet: "http://example-pdf.com/fund1",
     },
     {
@@ -24,7 +23,6 @@ export const Policy = () => {
       value: 2345.67,
       percentage: 50,
       currency: "GBP",
-      type: "GSPP",
       factsheet: "http://example-pdf.com/fund2",
     },
   ]);
