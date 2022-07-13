@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { AuthedLayout } from "../../components/AuthedLayout";
 import { AccountOverview } from "../../pages/AccountOverview";
 import { InvestmentsAvailable } from "../../pages/Investments/Available";
+import { Review } from "../../pages/Investments/Review";
 import { NotFound } from "../../pages/NotFound";
 import { Policy } from "../../pages/Policy";
 
@@ -14,6 +15,7 @@ export const AuthenticatedApp = () => {
           <Route index element={<Policy />} />
           <Route path="investments">
             <Route path="available" element={<InvestmentsAvailable />} />
+            <Route path="review" element={<Review />} />
           </Route>
         </Route>
         <Route path="*" element={<NotFound />} />
