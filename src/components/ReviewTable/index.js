@@ -1,4 +1,4 @@
-export const ReviewTable = ({ portfolio, onEdit }) => {
+export const ReviewTable = ({ portfolio }) => {
   return (
     <table>
       <thead>
@@ -11,7 +11,7 @@ export const ReviewTable = ({ portfolio, onEdit }) => {
         {portfolio.map(({ name, sedol, factsheet, percentage }) => (
           <tr>
             <td>
-              <a target="_blank" href={factsheet} rel="noreferrer">
+              <a href={factsheet} target="_blank" rel="noreferrer noopener">
                 {name}
               </a>
               <span>SEDOL:</span> {sedol}
