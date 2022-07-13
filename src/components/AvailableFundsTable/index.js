@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
-
 const TableRow = ({ name, sedol, factsheet, currentlyInvested, onAdd }) => {
   return (
     <tr>
       <td>
-        <Link to={factsheet}>{name}</Link>
+        <a href={factsheet} target="_blank" rel="noreferrer noopener">
+          {name}
+        </a>
         <span>SEDOL: </span>
         {sedol}
       </td>
