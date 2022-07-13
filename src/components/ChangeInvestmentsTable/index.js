@@ -19,7 +19,7 @@ const FundRow = ({ name, sedol, percentage, onChange, onRemove }) => {
           value={percentage}
           onChange={(event) => onChange(sedol, parseFloat(event.target.value))}
         />
-        %
+        <span>%</span>
       </td>
       <td>
         <button
