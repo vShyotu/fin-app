@@ -20,7 +20,7 @@ export const handlers = [
     const user = b64_to_utf8(userBase64);
     const pass = b64_to_utf8(passBase64);
 
-    if (user.toLowerCase() === "test" && pass === "test123") {
+    if (user.toLowerCase() === "test" && pass === "Test123!") {
       return res(
         ctx.status(200),
         ctx.json({ accessToken: "12345", refreshToken: "ABCDE" })
