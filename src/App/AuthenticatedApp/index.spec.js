@@ -34,6 +34,58 @@ describe("Authenticated App", () => {
     ).toBeInTheDocument();
   });
 
+  it("should display the Policy Overview page at /policy", () => {
+    const wrapper = withMemoryRouter(Providers, [
+      { pathname: "/policy", state: { policyNumber: "P12345678" } },
+    ]);
+
+    render(<AuthenticatedApp />, { wrapper });
+
+    expect(
+      screen.getByRole("heading", { name: /policy overview/i })
+    ).toBeInTheDocument();
+  });
+
+  it("should display the policy investments available page at /policy/investments/available", () => {
+    const wrapper = withMemoryRouter(Providers, [
+      {
+        pathname: "/policy/investments/available",
+        state: { policyNumber: "P12345678" },
+      },
+    ]);
+
+    render(<AuthenticatedApp />, { wrapper });
+
+    expect(
+      screen.getByRole("heading", { name: /change funds/i })
+    ).toBeInTheDocument();
+  });
+
+  it("should display the policy investments review page at /policy/investments/review", () => {
+    const wrapper = withMemoryRouter(Providers, [
+      {
+        pathname: "/policy/investments/review",
+        state: {
+          policyNumber: "P12345678",
+          portfolio: [
+            {
+              name: "Fund 1",
+              sedol: "FUND1",
+              percentage: 100,
+              factsheet: "http://example-pdf.com/fund1",
+            },
+          ],
+        },
+      },
+    ]);
+
+    render(<AuthenticatedApp />, { wrapper });
+
+    expect(
+      screen.getByRole("heading", { name: /review your changes/i })
+    ).toBeInTheDocument();
+  });
+
   it("should display the Not found page any undefined route", () => {
     const wrapper = withMemoryRouter(Providers, ["/test"]);
 
