@@ -7,7 +7,7 @@ const TestComponent = () => {
   const { user, login, logout } = useContext(AuthContext);
   return (
     <>
-      <button onClick={() => login("test", "test123")}>Log in</button>
+      <button onClick={() => login("test", "Test123!")}>Log in</button>
       <button onClick={() => logout()}>Log out</button>
       <pre>{user ? JSON.stringify(user) : "undefined"}</pre>
     </>
