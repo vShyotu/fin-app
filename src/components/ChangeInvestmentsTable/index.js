@@ -44,12 +44,12 @@ const TotalRows = ({ totalPercentage }) => {
         <td>
           <span>Total Invested:</span>
         </td>
-        <td>{totalPercentage}%</td>
+        <td>{+totalPercentage.toFixed(2)}%</td>
       </tr>
       {!!allocationDifference && (
         <tr>
           <td>{allocationDifference > 0 ? "Over" : "Under"} allocated by:</td>
-          <td>{Math.abs(allocationDifference)}%</td>
+          <td>{+Math.abs(allocationDifference).toFixed(2)}%</td>
         </tr>
       )}
     </>

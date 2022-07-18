@@ -3,7 +3,7 @@ import { ChangeInvestmentsTable } from "../../../components/ChangeInvestmentsTab
 import { AvailableFundsTable } from "../../../components/AvailableFundsTable";
 import { Navigate, useLocation, useNavigate, Link } from "react-router-dom";
 
-export const InvestmentsAvailable = () => {
+export const Available = () => {
   const headingRef = useRef();
   const { state } = useLocation();
   const navigate = useNavigate();
@@ -12,8 +12,8 @@ export const InvestmentsAvailable = () => {
     {
       name: "Fund 1",
       sedol: "FUND1",
-      percentage: 100,
       factsheet: "http://example-pdf.com/fund1",
+      percentage: 100,
     },
   ]);
 
@@ -34,10 +34,15 @@ export const InvestmentsAvailable = () => {
     {
       name: "Fund 1",
       sedol: "FUND1",
-      percentage: 100,
       factsheet: "http://example-pdf.com/fund1",
+      percentage: 100,
     },
   ]);
+
+  const hasMadeChanges = useMemo(
+    () => JSON.stringify(currentFunds) !== JSON.stringify(portfolio),
+    [portfolio, currentFunds]
+  );
 
   const [filter, setFilter] = useState("");
 
@@ -150,7 +155,9 @@ export const InvestmentsAvailable = () => {
       <h2>Your funds</h2>
       <p>Step 1 of 3</p>
 
-      <button onClick={onUndoClick}>Undo Changes</button>
+      <button onClick={onUndoClick} disabled={!hasMadeChanges}>
+        Undo Changes
+      </button>
       <button onClick={onAddClick}>Add a fund</button>
 
       <ChangeInvestmentsTable
@@ -161,7 +168,12 @@ export const InvestmentsAvailable = () => {
       />
 
       <button onClick={onCancel}>&lt; Cancel</button>
-      <button onClick={(event) => onSubmit(event, portfolio)}>Submit</button>
+      <button
+        onClick={(event) => onSubmit(event, portfolio)}
+        disabled={totalPercentage !== 100 || !hasMadeChanges}
+      >
+        Submit
+      </button>
 
       <h2 ref={headingRef}>Available Funds</h2>
 

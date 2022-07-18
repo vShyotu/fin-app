@@ -9,7 +9,7 @@ export const ReviewTable = ({ portfolio }) => {
       </thead>
       <tbody>
         {portfolio.map(({ name, sedol, factsheet, percentage }) => (
-          <tr>
+          <tr key={`review-row-${sedol}`}>
             <td>
               <a href={factsheet} target="_blank" rel="noreferrer noopener">
                 {name}

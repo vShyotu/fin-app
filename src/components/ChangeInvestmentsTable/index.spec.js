@@ -102,7 +102,7 @@ describe("Change Investments Table", () => {
   });
 
   it("should display under allocated and the difference when the total percentage is less than 100%", () => {
-    render(<ChangeInvestmentsTable {...mockProps} totalPercentage={95} />);
+    render(<ChangeInvestmentsTable {...mockProps} totalPercentage={95.87} />);
 
     const rows = screen.getAllByRole("row");
     const allocationRow = rows[rows.length - 1];
@@ -111,7 +111,7 @@ describe("Change Investments Table", () => {
       within(allocationRow).getByRole("cell", { name: /under allocated by:/i })
     ).toBeInTheDocument();
     expect(
-      within(allocationRow).getByRole("cell", { name: "5%" })
+      within(allocationRow).getByRole("cell", { name: "4.13%" })
     ).toBeInTheDocument();
   });
 

@@ -45,11 +45,11 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
-      "!<rootDir>/node_modules/",
-      "!<rootDir>/coverage/",
-      "!<rootDir>/public/",
-      "!src/mocks/",
-      "!src/test/",
+      "!<rootDir>/node_modules/**",
+      "!<rootDir>/coverage/**",
+      "!<rootDir>/public/**",
+      "!src/mocks/**",
+      "!src/test/**",
       "!src/index.js",
       "!src/reportWebVitals.js"
     ]

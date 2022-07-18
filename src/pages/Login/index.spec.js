@@ -9,6 +9,7 @@ const Providers = ({ children }) => (
     {children}
   </AuthContext.Provider>
 );
+
 describe("Login page", () => {
   it("should render a title", () => {
     const wrapper = withMemoryRouter(Providers, ["/login"]);
