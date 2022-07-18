@@ -20,7 +20,7 @@ describe("user", () => {
 
 describe("login", () => {
   it("should attempt to log the user in", async () => {
-    const loginResponse = await api.login("test", "test123");
+    const loginResponse = await api.login("test", "Test123!");
     const tokens = await loginResponse.json();
 
     expect(tokens).toEqual({ accessToken: "12345", refreshToken: "ABCDE" });
