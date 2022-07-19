@@ -19,12 +19,24 @@ export const Review = () => {
     navigate("confirmation", { state: { policyNumber } });
   };
 
+  const onCancel = (event) => {
+    event.preventDefault();
+    navigate("/policy", {
+      state: { policyNumber: state.policyNumber },
+    });
+  };
+
   const onCheck = useCallback(
     (event) => {
       setSwitchConfirmation(event.target.checked);
     },
     [setSwitchConfirmation]
   );
+
+  const onEdit = (event) => {
+    event.preventDefault();
+    navigate("/policy/investments/available", { state });
+  };
 
   if (!portfolio || !policyNumber) {
     return <Navigate to="/" />;
@@ -39,13 +51,7 @@ export const Review = () => {
         <h1>Review your changes</h1>
         <p>Step 2 of 3</p>
         <h2>Your choices</h2>
-        <button
-          onClick={() => {
-            navigate("/policy/investments", { state });
-          }}
-        >
-          Edit
-        </button>
+        <button onClick={onEdit}>Edit</button>
         <ReviewTable portfolio={portfolio} />
         <h2>Confirmation</h2>
         <input
@@ -61,13 +67,7 @@ export const Review = () => {
           way
         </label>
         <div>
-          <button
-            onClick={() => {
-              navigate("/policy/investments", { state });
-            }}
-          >
-            &lt; Cancel
-          </button>
+          <button onClick={onCancel}>&lt; Cancel</button>
           <button onClick={onSubmit} disabled={!switchConfirmation}>
             Submit
           </button>

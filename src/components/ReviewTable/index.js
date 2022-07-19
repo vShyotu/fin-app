@@ -13,7 +13,7 @@ export const ReviewTable = ({ portfolio }) => {
             <td>
               <a href={factsheet} target="_blank" rel="noreferrer noopener">
                 {name}
-              </a>
+              </a>{" "}
               <span>SEDOL:</span> {sedol}
             </td>
             <td>{percentage}%</td>
