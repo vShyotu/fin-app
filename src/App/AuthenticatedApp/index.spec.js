@@ -21,7 +21,9 @@ describe("Authenticated App", () => {
 
     render(<AuthenticatedApp />, { wrapper });
 
-    expect(screen.getByRole("link", { name: "Home" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /home/i, hidden: true })
+    ).toBeInTheDocument();
   });
 
   it('should display the Account Overview page at route "/"', () => {

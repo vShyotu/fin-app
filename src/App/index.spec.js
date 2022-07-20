@@ -22,7 +22,9 @@ describe("App", () => {
 
       render(<App />, { wrapper });
 
-      expect(screen.getByRole("link", { name: /home/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole("link", { name: /home/i, hidden: true })
+      ).toBeInTheDocument();
     });
   });
 

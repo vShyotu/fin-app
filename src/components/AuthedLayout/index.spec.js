@@ -24,7 +24,7 @@ describe("AuthedLayout", () => {
     );
 
     expect(
-      screen.getByRole("button", { name: /log out/i })
+      screen.getByRole("link", { name: /home/i, hidden: true })
     ).toBeInTheDocument();
   });
 
